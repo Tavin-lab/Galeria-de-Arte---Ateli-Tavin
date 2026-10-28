@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Galeria · Logos, Artes Gráficas e Vestuário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="eyebrow">Galeria autoral · Seção especial</div>
+        <h1>Forma, marca <em>&amp;</em> vestuário</h1>
+      </div>
+      <div class="row">
+        <button class="btn" id="bAdm">Entrar no painel</button>
+      </div>
+    </header>
+
+    <nav class="nav" id="nav"></nav>
+    <div class="bar" id="bar"></div>
+    <div id="grid"></div>
+  </div>
+
+  <div class="modal" id="modal"></div>
+  <button class="x" id="x" aria-label="Fechar">✕</button>
+
+  <aside id="adm" aria-label="Painel de edição">
+    <div class="row" style="justify-content:space-between">
+      <b>Painel de edição</b>
+      <div class="row"><button class="btn" id="aOut">Sair</button><button class="btn" id="aX">Fechar</button></div>
+    </div>
+    <p class="meta">As alterações são publicadas online quando o Supabase estiver configurado. Imagens comuns são otimizadas ao importar.</p>
+    <div class="meta" id="aSt"></div>
+    <div class="row">
+      <label style="margin:0"><input type="checkbox" id="aDl" style="width:auto"> Permitir copiar/baixar originais</label>
+    </div>
+    <div class="row" style="margin-top:6px">
+      <label style="margin:0"><input type="checkbox" id="aDemo" style="width:auto"> Ocultar exemplos de demonstração</label>
+    </div>
+    <hr>
+    <b id="fT">Novo projeto</b>
+    <label>Categoria principal</label>
+    <select id="fC">
+      <option value="logos">Logos</option>
+      <option value="artes">Artes gráficas</option>
+      <option value="vestuario">Vestuário</option>
+    </select>
+    <label>Título</label><input id="fN">
+    <label>Descrição / conceito</label><textarea id="fD" rows="3"></textarea>
+    <label>Ano</label><input id="fY" inputmode="numeric">
+    <label>Formato / dimensões (opcional)</label><input id="fF">
+    <label>Tags (separadas por vírgula)</label><input id="fG">
+    <label>Rótulo dos arquivos a enviar (ex.: Positivo, Frente, Estampa)</label><input id="fL">
+    <label>Arquivos (SVG, PNG, JPG, WebP…)</label><input id="fU" type="file" accept="image/*" multiple>
+    <div id="fFiles" style="margin-top:8px"></div>
+    <div class="row" style="margin-top:12px">
+      <button class="btn on" id="fS">Salvar projeto</button>
+      <button class="btn" id="fR">Limpar</button>
+    </div>
+    <hr>
+    <b>Projetos e ordem</b>
+    <div id="aList"></div>
+  </aside>
+
+  <div class="auth-backdrop" id="authBox" aria-hidden="true">
+    <form class="auth-card" id="authForm">
+      <div class="eyebrow">Área restrita</div>
+      <h2>Entrar no painel</h2>
+      <p class="meta">Use o e-mail autorizado para administrar esta galeria.</p>
+      <label for="authEmail">E-mail</label>
+      <input id="authEmail" type="email" autocomplete="username" required>
+      <label for="authPassword">Senha</label>
+      <input id="authPassword" type="password" autocomplete="current-password" required>
+      <p class="auth-error" id="authError" role="alert"></p>
+      <div class="row"><button class="btn on" type="submit" id="authSubmit">Entrar</button><button class="btn" type="button" id="authCancel">Cancelar</button></div>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script id="seed" type="application/json">{}</script>
+  <script src="script.js"></script>
+</body>
+</html>
